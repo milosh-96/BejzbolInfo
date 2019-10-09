@@ -35,7 +35,7 @@
                       <div class="ui segment">
                  <div class="ui form">
                  <div class="ui checkbox">
-                        <input type="checkbox" id="titleFieldCheckbox" onclick="toggleTitleField()" /><label>Toggle Title</label>
+                        <input type="checkbox" id="titleFieldCheckbox" onclick="Library.toggleTitleField()" /><label>Toggle Title</label>
                     </div>
                     <div class="field" id="postTitleField" style="display:none">
                         <input id="postTitle" />
@@ -45,7 +45,7 @@
                     <textarea id="postContent" rows="2"></textarea>
                     </div>
                     <div>
-                        <button class="ui button" onclick="post('{{auth()->user()->token()}}')">Post!</button>
+                        <button class="ui button" onclick="Library.post('{{auth()->user()->token()}}')">Post!</button>
                     </div>
                 </div>
                 </div>

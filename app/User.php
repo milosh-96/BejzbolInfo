@@ -40,4 +40,14 @@ class User extends Authenticatable
     public function token() {
         return $this->api_token;
     }
+
+    public function gravatar() {
+        $email = $this->email;
+        $default = "http://www.gravatar.com/avatar/?d=identicon";
+        $size = 40;
+
+
+        $url = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
+        return $url;
+    }
 }
