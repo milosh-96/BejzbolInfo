@@ -13,13 +13,19 @@ var Library = Library || (function () {
             axios.post("/api/posts?api_token=" + token, data).then(function (response) {
                 title = "";
                 content = "";
-                getFeed();
             }).catch(function (error) {
                 alert("error!")
             });
 
+            this.getFeed();
+
+
 
         },
+
+        deletePost: function(post_id) {
+            axios.post("/api/posts/"+post_id)
+        }
 
 
 
@@ -56,7 +62,7 @@ var Library = Library || (function () {
         cancelEdit: function (el) {
             $(el).parent().siblings(".feed-item-content").css("display", "block");
             $(el).parent().remove();
-         
+
         }
     };
 

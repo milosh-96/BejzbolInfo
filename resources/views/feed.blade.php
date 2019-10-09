@@ -5,7 +5,7 @@
                                         {{$post->title}}
                                       </div>
                                       <div class="meta">
-                                        <span class="right floated time">2 days ago</span>
+                                        <span class="right floated time">{{$post->postedAgo()}}</span>
                                         <span class="category"><a href="Astros">Astros</a> <a href="#">Rays</a></span>
                                       </div>
                                       <div class="description feed-item-content">

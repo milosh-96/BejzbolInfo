@@ -32,7 +32,7 @@
                         <i class="dropdown icon"></i>
                         <div class="menu">
                           <a class="item"><i class="bbclub-nyy"></i> New York Yankees</a>
-                          <a class="item"><i class="bbclub-bos"></i> Boston Red Sox</a>
+                          <a class="item"><i class="bbclub-bos-alt"></i> Boston Red Sox</a>
                           <a class="item"><i class="bbclub-tb"></i> Tampa Bay Rays</a>
                           <a class="item"><i class="bbclub-tor"></i> Toronto Blue Jays</a>
                           <a class="item"><i class="bbclub-bal"></i> Baltimore Orioles</a>
@@ -73,38 +73,70 @@
                         NL East
                         <i class="dropdown icon"></i>
                         <div class="menu">
-                          <a class="item">New York Yankees</a>
-                          <a class="item">Boston Red Sox</a>
-                          <a class="item">Tampa Bay Rays</a>
-                          <a class="item">Toronto Blue Jays</a>
-                          <a class="item">Baltimore Orioles</a>
+                            <a href="#" class="item"><i class="bbclub-atl"></i> Atlanta Braves</a>
+                            <a href="#" class="item"><i class="bbclub-phi"></i> Philadelphia Phillies</a>
+                            <a href="#" class="item"><i class="bbclub-wsh"></i> Washington Nationals</a>
+                            <a href="#" class="item"><i class="bbclub-nym"></i> New York Mets</a>
+                            <a href="#" class="item"><i class="bbclub-mia"></i> Miami Marlins</a>
                         </div>
                       </div>
                 <div class="ui simple dropdown item">
                         NL Central
                         <i class="dropdown icon"></i>
                         <div class="menu">
-                          <a class="item">New York Yankees</a>
-                          <a class="item">Boston Red Sox</a>
-                          <a class="item">Tampa Bay Rays</a>
-                          <a class="item">Toronto Blue Jays</a>
-                          <a class="item">Baltimore Orioles</a>
+                          <a href="#" class="item"><i class="bbclub-chc"></i> Chicago Cubs</a>
+                          <a href="#" class="item"><i class="bbclub-stl"></i> Saint Louis Cardinals</a>
+                          <a href="#" class="item"><i class="bbclub-mil"></i> Milwaukee Brewers</a>
+                          <a href="#" class="item"><i class="bbclub-pit"></i> Pittsburg Pirates</a>
+                          <a href="#" class="item"><i class="bbclub-cin"></i> Cincinnati Reds</a>
                         </div>
                       </div>
                 <div class="ui simple dropdown item">
                         NL West
                         <i class="dropdown icon"></i>
                         <div class="menu">
-                          <a class="item">New York Yankees</a>
-                          <a class="item">Boston Red Sox</a>
-                          <a class="item">Tampa Bay Rays</a>
-                          <a class="item">Toronto Blue Jays</a>
-                          <a class="item">Baltimore Orioles</a>
+                          <a href="#" class="item"><i class="bbclub-lad"></i> Los Angeles Dodgers</a>
+                          <a href="#" class="item"><i class="bbclub-ari"></i> Arizona Diamondbacks</a>
+                          <a href="#" class="item"><i class="bbclub-sf"></i> San Francisco Giants</a>
+                          <a href="#" class="item"><i class="bbclub-sd"></i> San Diego Padres</a>
+                          <a href="#" class="item"><i class="bbclub-col"></i> Colorado Rockies</a>
                         </div>
                       </div>
               </div>
         <main class="ui container">
+                <div class="container">
+                        <div class="ui stackable grid">
+                            <div class="four wide column">
+
+                                    <div class="ui segment">
+                                        <img src="https://bejzbol.info/wp-content/uploads/2019/02/logo-dark.png" width="100%" max-height="72px" alt="">
+                                    </div>
+                                    <div class="ui vertical menu" style="width:100%">
+                                            <a class="active teal item">
+                                              Inbox
+                                              <div class="ui teal left pointing label">1</div>
+                                            </a>
+                                            <a class="item">
+                                              Spam
+                                              <div class="ui label">51</div>
+                                            </a>
+                                            <a class="item">
+                                              Updates
+                                              <div class="ui label">1</div>
+                                            </a>
+                                            <div class="item">
+                                              <div class="ui transparent icon input">
+                                                <input type="text" placeholder="Search mail...">
+                                                <i class="search icon"></i>
+                                              </div>
+                                            </div>
+                                          </div>
+                            </div>
             @yield('content')
+                        </div>
+                </div>
+
+
         </main>
 
         <footer class="ui container"></footer>

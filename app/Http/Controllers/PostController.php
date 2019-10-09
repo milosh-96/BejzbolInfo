@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\User;
+use App\Repositories\PostRepository;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -13,6 +14,12 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    private $postRepo;
+    public function __construct(PostRepository $postRepo)
+    {
+        $this->postRepo = $postRepo;
+    }
     public function index()
     {
         return Post::all();
@@ -20,7 +27,7 @@ class PostController extends Controller
 
 
     public function feed() {
-        return view('feed')->with(['posts'=>Post::all()]);
+        return view('feed')->with(['posts'=>$this->postRepo->all("desc")]);
     }
 
     /**
@@ -93,6 +100,6 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $this->postRepo->delete($post);
     }
 }
