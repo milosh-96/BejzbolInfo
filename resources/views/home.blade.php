@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-        <div class="ui grid">
+        <div class="ui stackable grid">
             <div class="four wide column">
 
                     <div class="ui segment">
@@ -30,43 +30,54 @@
                           </div>
             </div>
             <div class="twelve wide column">
-                    <?php for($i=0;$i<5;$i++): ?>
 
-                            <div class="ui card" style="width:100%;">
-                                    <div class="content">
-                                      <div class="header"></div>
-                                      <div class="meta">
-                                        <span class="right floated time">2 days ago</span>
-                                        <span class="category"><a href="Astros">Astros</a> <a href="#">Rays</a></span>
-                                      </div>
-                                      <div class="description">
-                                        <p>
-                                            Džastin Verlander u problemima u Tampi. Čak 57 bacanja u prva dva ininga!!
-                                        </p>
-                                      </div>
-                                    </div>
-                                    <div class="extra content">
-                                    <div class="left floated">
-                                        @if(auth()->user())
-                                        <span>
-                                            <a href="#">
-                                                    Edit
-                                            </a>
-                                        </span>
-                                        @endif
-                                    </div>
-                                      <div class="right floated author">
-                                        <img class="ui avatar image" src="https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/7_avatar-512.png"> Miloš
-                                      </div>
-                                    </div>
-                                  </div>
+                    @if(auth()->user())
+                      <div class="ui segment">
+                 <div class="ui form">
+                 <div class="ui checkbox">
+                        <input type="checkbox" id="titleFieldCheckbox" onclick="toggleTitleField()" /><label>Toggle Title</label>
+                    </div>
+                    <div class="field" id="postTitleField" style="display:none">
+                        <input id="postTitle" />
+                    </div>
+                    <div class="field">
+                    
+                    <textarea id="postContent" rows="2"></textarea>
+                    </div>
+                    <div>
+                        <button class="ui button" onclick="post('{{auth()->user()->token()}}')">Post!</button>
+                    </div>
+                </div>
+                </div>
+                @endif
+                   <div id="feed">
 
+                    <div class="ui fluid placeholder">
+  <div class="image header">
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  <div class="paragraph">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+</div>
+<div class="ui fluid placeholder">
+  <div class="image header">
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  <div class="paragraph">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+</div>
 
-
-                        <?php endfor;?>
+                   </div>
             </div>
 
         </div>
     </div>
-</div>
 @endsection

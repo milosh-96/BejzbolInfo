@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -14,7 +15,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return Post::all();
+    }
+
+
+    public function feed() {
+        return view('feed')->with(['posts'=>Post::all()]);
     }
 
     /**
@@ -35,7 +41,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = auth()->user();
+
+        return Post::create([
+            "title"=>$request->title,
+            "content"=>$request->content,
+            "user_id"=>auth()->user()->id
+
+        ]);
     }
 
     /**

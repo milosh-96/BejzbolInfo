@@ -20,12 +20,13 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
         <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
         <link rel="stylesheet" href="https://daigofuji.github.io/bbclub-font/css/bbclub-font.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
 
-        <div class="ui seven item menu inverted" style="border-radius:0">
+        <div class="ui seven stackable item menu inverted" style="border-radius:0">
                 <div class="ui simple dropdown item">
                         AL East
                         <i class="dropdown icon"></i>
@@ -105,6 +106,9 @@
         <main class="ui container">
             @yield('content')
         </main>
-    </div>
+
+        <footer class="ui container"></footer>
+
+        <script src="/js/app.js" />
 </body>
 </html>

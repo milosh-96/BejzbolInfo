@@ -17,3 +17,8 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/feed', 'PostController@feed')->name('feed');
+
+Route::group(['prefix'=>'post'],function() {
+    Route::post('/','PostController@store');
+});
