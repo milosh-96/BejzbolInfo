@@ -11,8 +11,8 @@ var Library = Library || (function () {
                 content: content
             };
             axios.post("/api/posts?api_token=" + token, data).then(function (response) {
-                title = "";
-                content = "";
+                $("#postTitle").attr('value','');
+                $("#postContent").attr('value','');
             }).catch(function (error) {
                 alert("error!")
             });
@@ -23,9 +23,24 @@ var Library = Library || (function () {
 
         },
 
-        deletePost: function(post_id) {
-            axios.post("/api/posts/"+post_id)
-        }
+        deletePost: function(el,post_id,token) {
+            axios.post("/api/posts/"+post_id+"?api_token="+token).then(function(response) {
+            //visually delete item//
+                $(el).parent().parent().parent().parent().remove();
+            });
+        },
+
+        updatePost: function(el,post_id,token) {
+            var data = {content:$(el).siblings().find(".postEditContent").val()};
+
+             axios.post("/api/posts/update/"+post_id+"?api_token="+token,data).then(function(response) {
+            //visually update item//
+                 $(el).parent().siblings(".feed-item-content").html(data.content);
+                 $(el).parent().siblings(".feed-item-content").css("display", "block");
+            $(el).parent().remove();
+            });
+
+        },
 
 
 
@@ -50,13 +65,14 @@ var Library = Library || (function () {
         },
 
 
-        edit: function (el) {
+        edit: function (el,post_id,token) {
             var contentDiv = $(el).parent().parent().parent().siblings(".content").find(".feed-item-content");
             var content = contentDiv[0].innerText;
             contentDiv.css("display", "none");
             contentDiv.parent().append('<div class="edit"></div>');
-            contentDiv.parent().find(".edit").append('<div class="ui form"><div class="field"><textarea rows="2">' + content + '</textarea></div></div>');
+            contentDiv.parent().find(".edit").append('<div class="ui form"><div class="field"><textarea class="postEditContent" rows="2">' + content + '</textarea></div></div>');
             contentDiv.parent().find(".edit").append('<button class="button" onclick="Library.cancelEdit(this)">Cancel</button>');
+            contentDiv.parent().find(".edit").append('<button class="button" onclick="Library.updatePost(this'+`,${post_id},'${token}'`+')">Update</button>');
 
         },
         cancelEdit: function (el) {

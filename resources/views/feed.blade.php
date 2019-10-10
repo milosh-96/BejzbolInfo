@@ -16,9 +16,12 @@
                                     <div class="left floated">
                                         @if(auth()->user())
                                         <span>
-                                            <a href="#" onclick="Library.edit(this)">
+                                            <a href="#" onclick="Library.edit(this,{{$post->id}},'{{auth()->user()->token()}}')">
                                                     Edit
                                             </a>
+                                        </span>
+                                        <span>
+                                            <a href="#" onclick="Library.deletePost(this,{{$post->id}},'{{auth()->user()->token()}}')">Delete</a>
                                         </span>
                                         @endif
                                     </div>

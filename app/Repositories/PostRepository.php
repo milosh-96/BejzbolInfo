@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 use App\Repositories\Interfaces\PostRepositoryInterface;
+use Illuminate\Http\Request;
+
 use App\Post;
 class PostRepository implements PostRepositoryInterface {
     public function all($sort = null) {
@@ -26,5 +28,14 @@ class PostRepository implements PostRepositoryInterface {
 
     public function delete(Post $post) {
         return $post->delete();
+    }
+
+    public function update(Post $post,Request $request) {
+        if($post) {
+            $post->title = $request->title;
+            $post->content = $request->content;
+            $post->save();
+        }
+
     }
 }

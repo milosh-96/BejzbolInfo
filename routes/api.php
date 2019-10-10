@@ -16,4 +16,5 @@ use Illuminate\Http\Request;
 Route::group(['prefix'=>'posts','middleware'=>['auth:api']],function() {
     Route::post('/','PostController@store');
     Route::post('/{post}','PostController@destroy');
+    Route::post('/update/{post}','PostController@update');
 });
