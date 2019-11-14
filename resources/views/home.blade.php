@@ -28,7 +28,7 @@
                         <div class="twelve wide column">
                             <div class="ui mini form">
                                     <div class="field">
-                                        <input type="text" placeholder="Teams, separate by commas">
+                                        <input type="text" placeholder="Teams, separate by commas" name="teams" id="teamsField">
                                     </div>
                             </div>
                         </div>

@@ -6,9 +6,11 @@ var Library = Library || (function () {
         post: function (token) {
             var title = document.getElementById("postTitle").value;
             var content = document.getElementById("postContent").value;
+            var teams = document.getElementById("teamsField").value;
             var data = {
                 title: title,
-                content: content
+                content: content,
+                teams: teams
             };
             axios.post("/api/posts?api_token=" + token, data).then(function (response) {
                 $("#postTitle").attr('value','');

@@ -22,3 +22,9 @@ Route::get('/feed', 'PostController@feed')->name('feed');
 Route::group(['prefix'=>'post'],function() {
     Route::post('/','PostController@store');
 });
+
+
+Route::get('test',function() {
+    
+
+});

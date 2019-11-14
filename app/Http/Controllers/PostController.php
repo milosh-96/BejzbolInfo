@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\User;
 use App\Repositories\PostRepository;
+use App\Repositories\TeamRepository;
 use Illuminate\Http\Request;
+
 
 class PostController extends Controller
 {
@@ -16,9 +18,11 @@ class PostController extends Controller
      */
 
     private $postRepo;
-    public function __construct(PostRepository $postRepo)
+    private $teamRepo;
+    public function __construct(PostRepository $postRepo,TeamRepository $teamRepo)
     {
         $this->postRepo = $postRepo;
+        $this->teamRepo = $teamRepo;
     }
     public function index()
     {
@@ -48,13 +52,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
         $user = auth()->user();
 
+        if($request->teams) {
+            $this->teamRepo->bulkInsert($request->teams);
+        }
         return Post::create([
             "title"=>$request->title,
             "content"=>$request->content,
             "user_id"=>auth()->user()->id
-
         ]);
     }
 
