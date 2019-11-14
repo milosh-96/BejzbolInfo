@@ -109,8 +109,14 @@
                             <div class="four wide column">
 
                                     <div class="ui segment">
-                                        <img src="https://bejzbol.info/wp-content/uploads/2019/02/logo-dark.png" width="100%" max-height="72px" alt="">
+                                      <a href="/">
+                                      <img src="https://bejzbol.info/wp-content/uploads/2019/02/logo-dark.png" width="100%" max-height="72px" alt="">
+
+                                      </a>
                                     </div>
+
+                                    
+
                                     <div class="ui vertical menu" style="width:100%">
                                             <a class="active teal item">
                                               Inbox
@@ -131,6 +137,21 @@
                                               </div>
                                             </div>
                                           </div>
+
+                                          @if(auth()->user())
+                                      <div class="ui vertical menu" style="width:100%">
+                                        <a class="item" href="#">
+                                        <img src="{{auth()->user()->gravatar()}}" class="ui avatar image"  alt="">
+                                          {{auth()->user()->name}}
+                                        </a>
+                                        <a href="#" class="item"><i class="user icon"></i> View My Profile</a>
+                                        <a href="#" class="item"><i class="sliders horizontal icon"></i> My Preferences</a>
+                                        <a href="#" class="item"><i class="cog icon"></i> My Settings</a>
+                                        <a href="#" class="item"><i class="sign-out icon"></i> Logout</a>
+                                      </div>
+                                    @endif
+
+
                             </div>
             @yield('content')
                         </div>
